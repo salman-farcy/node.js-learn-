@@ -1,0 +1,13 @@
+import { createServer, IncomingMessage, Server, ServerResponse } from "http"
+import { routeHandler } from "./routes/route";
+
+
+const server : Server = createServer((req : IncomingMessage, res : ServerResponse)=>{
+    //  console.log(req.url)    // "/", "/user", "/products"
+    //  console.log(req.method) // "GET", "POST", "DELETE"
+    routeHandler(req, res)
+})
+
+server.listen(5000, () => {
+    console.log(`Server Is running on the port ${5000}`);
+})

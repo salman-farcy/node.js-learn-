@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Wireless Mouse",
+    "description": "Ergonomic wireless mouse with USB receiver and long battery life.",
+    "price": 25.99
+  },
+  {
+    "id": 2,
+    "name": "Mechanical Keyboard",
+    "description": "RGB backlit mechanical keyboard with blue switches.",
+    "price": 79.99
+  },
+  {
+    "id": 3,
+    "name": "Gaming Monitor",
+    "description": "27-inch Full HD monitor with 144Hz refresh rate.",
+    "price": 249.99
+  },
+  {
+    "id": 4,
+    "name": "Laptop Stand",
+    "description": "Adjustable aluminum laptop stand for desk setup.",
+    "price": 39.5
+  },
+  {
+    "id": 5,
+    "name": "USB-C Hub",
+    "description": "Multiport USB-C hub with HDMI and USB 3.0 ports.",
+    "price": 45.0
+  }
+]
