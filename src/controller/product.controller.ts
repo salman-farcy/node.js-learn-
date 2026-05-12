@@ -2,43 +2,29 @@ import type { IncomingMessage, ServerResponse } from "http";
 import { readProduct } from "../service/product.service";
 import type { IProduct } from "../types/products.type";
 
-export const productController = (req: IncomingMessage, res: ServerResponse) => {
+export const productController = (req : IncomingMessage, res : ServerResponse) => {
      const url = req.url;
      const method = req.method
      const urlParts = url?.split("/");
-     const id = urlParts && urlParts[1] === "products" ? Number(urlParts[2]) : null;
-
-
+     const id = urlParts && urlParts[1] === "products" ? Number(urlParts[2]) : null ;
 
      //? Get All Products
-     if (url === "/products" && method === "GET") {
+     if(url === "/products" && method === "GET") {
           const products = readProduct()
-          res.writeHead(200, { "content-type": "application/json" });
-          res.end(JSON.stringify({ message: "Products Retrived successfully", data: products }))
+          res.writeHead(200, {"content-type": "application/json"});
+          res.end(JSON.stringify({ message: "Products Retrived successfully", data: products}))
      }
      //? Get single Product 
-     else if (method === "GET" && id !== null) {
+     else if(method === "GET" && id !== null) {
           const products = readProduct()
-          const product = products.find((p: IProduct) => p.id === id);
+          const product = products.find((p : IProduct) => p.id === id);
           // console.log(product)
-          res.writeHead(200, { "content-type": "application/json" });
+          res.writeHead(200, {"content-type" : "application/json"});
           res.end(
                JSON.stringify({
                     message: "Products retrived successfully",
                     data: product
                })
           )
-     } else {
-          const products = readProduct()
-          products.find((p: IProduct) => {
-               if (p.id !== id) {
-                    res.writeHead(404, { "content-type": "application/json" });
-                    res.end(
-                         JSON.stringify({ message: "Product Not found" })
-                    )
-               }
-          });
-
-
      }
 }
